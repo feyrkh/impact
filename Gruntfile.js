@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                 livereload: true
             },
             scripts: {
-                files: ['**/*.js'],
+                files: ['src/**/*.js','test/**/*.js'],
                 tasks: ['test']
             }
         },
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
                         from: '<script src="src/lib/game/globals.js"></script>',
                         to: ''
                     }
-                ],
+                ]
             },
             impact_debug: {
                 src: ['builds/tmp/lib/game/main.js'],
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
                         from: '\'impact.debug.debug\',',
                         to: ''
                     }
-                ],
+                ]
             },
             build_info: {
                 src: ['builds/tmp/index.html'],
@@ -107,7 +107,7 @@ module.exports = function (grunt) {
                             return '<p class="build-info"><%= pkg.name %> (' + pkg.version + ')<br><%= grunt.template.today("UTC:dddd, dd/mm/yyyy") %><br><%= grunt.template.today("UTC:HH:MM:ss Z") %></p>';
                         }
                     }
-                ],
+                ]
             },
             impact_links: {
                 src: ['builds/tmp/index.html'],
@@ -168,5 +168,5 @@ module.exports = function (grunt) {
     grunt.registerTask('lint', ['jshint']);
     grunt.registerTask('clean-builds', ['clean:builds']);
     grunt.registerTask('test', ['debug', 'karma:unit', 'clean:tmp']);
-    grunt.registerTask('dev', ['debug', 'karma:unit', 'watch']);
+    grunt.registerTask('dev', ['debug', 'watch']);
 };
