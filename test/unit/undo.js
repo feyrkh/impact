@@ -124,4 +124,21 @@ describe('Plugins/Undo', function () {
         expect(mathUndoer.redoCmd()).toBeTruthy();
     });
 
+    it("can clear undo/redo history", function() {
+        expect(state).toBe(0);
+        expect(mathUndoer.applyCmd(1)).toBeFalsy();
+        expect(mathUndoer.applyCmd(2)).toBeFalsy();
+        expect(mathUndoer.applyCmd(3)).toBeFalsy();
+        expect(state).toBe(6);
+        expect(mathUndoer.undoCmd()).toBeFalsy();
+        expect(mathUndoer.undoCmd()).toBeFalsy();
+        expect(mathUndoer.redoCmd()).toBeFalsy();
+        expect(state).toBe(3);
+        mathUndoer.clearHistory();
+        expect(state).toBe(3);
+        expect(mathUndoer.undoCmd()).toBeTruthy();
+        expect(state).toBe(3);
+        expect(mathUndoer.redoCmd()).toBeTruthy();
+        expect(state).toBe(3);
+    })
 });

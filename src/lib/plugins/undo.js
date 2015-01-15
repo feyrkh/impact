@@ -20,10 +20,12 @@ ig.module(
                 if (!opts.applyCmd) throw "Must supply opts.applyCmd to ig.Undo constructor";
                 if (!opts.undoCmd) throw "Must supply opts.undoCmd to ig.Undo constructor.";
                 this.opts = opts;
+                this.clearHistory();
+            },
+            clearHistory: function() {
                 this.stack = [];
                 this.redoStack = [];
             },
-
             applyCmd: function(cmd) {
                 var err = this.opts.applyCmd(cmd);
                 if(!err) {
