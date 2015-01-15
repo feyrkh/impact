@@ -26,6 +26,13 @@ ig.module(
             return this.length > 0 ? this[this.length - 1] : undefined;
         };
 
+        Array.prototype.clear = function() {
+            while(this.length) {
+                this.pop();
+            }
+            return this;
+        };
+
         /*
          * Create a Utils class, primarily intended as a namespace for static functions.
          */

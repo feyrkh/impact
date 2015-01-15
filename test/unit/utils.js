@@ -42,6 +42,11 @@ describe('Plugins/Utils', function() {
     expect([].last()).toBeUndefined();
   });
 
+  it('Array.prototype.clear', function() {
+    expect([1, 2, 3].clear().length).toBe(0);
+    expect([].clear().length).toBe(0);
+  });
+
   it('gg.utils.trim', function() {
     var x = '  test   ';
     expect(gg.utils.trim(x)).toBe('test');
