@@ -35,5 +35,10 @@ describe('Plugins/Noise', function() {
         expect(first).not.toBeCloseTo(third, 5);
     })
 
-
+    it('simplex2 supports negative numbers', function() {
+        var first = gg.noise.simplex2(-1,-1);
+        var second = gg.noise.simplex2(1,-1);
+        expect(first !== 0).toBe(true);
+        expect(first).not.toBeCloseTo(second, 5);
+    });
 });

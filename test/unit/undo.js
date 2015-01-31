@@ -12,18 +12,18 @@ describe('Plugins/Undo', function () {
                 state = 0;
 
                 function applyCmd(cmd) {
-                    console.log("Trying to apply "+cmd);
+//                    console.log("Trying to apply "+cmd);
                     if(cmd < 0) return "can't add negatives";
                     state += cmd;
                 }
 
                 function undoCmd(cmd) {
-                    console.log("Trying to undo "+cmd);
+//                    console.log("Trying to undo "+cmd);
                     state -= cmd;
                 }
 
                 function redoCmd(cmd) {
-                    console.log("Trying to redo "+cmd);
+//                    console.log("Trying to redo "+cmd);
                     state += cmd;
                 }
 
